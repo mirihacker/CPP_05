@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:07:48 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/10 12:22:38 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/10 16:32:47 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,27 @@ class Bureaucrat
     Bureaucrat(const Bureaucrat& other);
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
+
+    // Getters
+    const std::string& getName() const;
+    int getGrade() const;
+
+    // Methods to +/- grade
+    void incrementGrade();
+    void decrementGrade();
+
+    // Exception classes
+    class GradeTooHighException : public std::exception
+    {
+        public:
+            const char* what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+        public:
+            const char* what() const throw();
+    };
 };
 
 #endif
