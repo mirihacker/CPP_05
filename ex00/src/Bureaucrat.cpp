@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:08:01 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/11 15:32:36 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:42:05 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // OCF
 Bureaucrat::Bureaucrat(void) : name("Buro"), grade(100) {}
 
-Bureaucrat::Bureaucrat(const std::string&name, int grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : name(name)
 {
     if (grade > 150)
         throw GradeTooLowException();

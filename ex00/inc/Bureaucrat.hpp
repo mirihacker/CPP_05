@@ -6,12 +6,12 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:07:48 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/11 14:40:52 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:39:59 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT.HPP
-#define BUREAUCRAT.HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
