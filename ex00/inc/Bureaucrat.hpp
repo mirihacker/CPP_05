@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:07:48 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/10 16:32:47 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:40:52 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ class Bureaucrat
             const char* what() const throw();
     };
 };
+
+// Operator overload
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& buro);
 
 #endif

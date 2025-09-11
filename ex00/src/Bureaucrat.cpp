@@ -6,20 +6,21 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:08:01 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/10 16:58:01 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:32:36 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 
+// OCF
 Bureaucrat::Bureaucrat(void) : name("Buro"), grade(100) {}
 
 Bureaucrat::Bureaucrat(const std::string&name, int grade)
 {
     if (grade > 150)
-        throw GradeTooLowException;
+        throw GradeTooLowException();
     else if (grade < 1)
-        throw GradeTooHighException;
+        throw GradeTooHighException();
     this->grade = grade;
 }
 
@@ -34,6 +35,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat(void) {}
 
+//Getters
 const std::string &Bureaucrat::getName() const
 {
     return (this->name);
@@ -44,6 +46,7 @@ int Bureaucrat::getGrade() const
     return(this->grade);
 }
 
+// Methodsto +/- grade
 void Bureaucrat::incrementGrade()
 {
     if (this->grade - 1 < 1)
@@ -58,13 +61,20 @@ void Bureaucrat::decrementGrade()
     this->grade++;
 }
 
+// Exception classes
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return("Grade is too high");
+    return("Grade is too high!\n");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return("Grade is too low");
+    return("Grade is too low!\n");
 }
 
+// Operator Overload
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& buro)
+{
+    out << buro.getName() << ", bureaucrat grade " << buro.getGrade() << std::endl;
+    return (out);
+}
