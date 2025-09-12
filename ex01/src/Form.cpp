@@ -6,15 +6,15 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:47:24 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 14:33:58 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:40:31 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 #include "../inc/Form.hpp"
 
 // OCF
-Form::Form(void) : name("Buro"), isSigned(0), signedGrade(100), execGrade(100) {}
+Form::Form(void) : name("Buro"), isSigned(0), signedGrade(1), execGrade(1) {}
 
 Form::Form(const std::string &name, int signedGrade, int execGrade) : name(name), isSigned(0), signedGrade(signedGrade), execGrade(execGrade)
 {
@@ -78,8 +78,11 @@ const char* Form::GradeTooLowException::what() const throw()
 }
 
 // Operator Overload
-std::ostream& operator<<(std::ostream& out, const Form& buro)
+std::ostream& operator<<(std::ostream& out, const Form& form)
 {
-    out << buro.getName() << ", Form grade " << buro.getGrade() << std::endl;
+    out << form.getName() << ":\n" << "Is form signed? " \
+    << form.getIsSigned() << "\n" << "Form has signed grade of: " \
+    << form.getSignedGrade() << "\n" << "Form has execution grade of: " \
+    << form.getExecGrade() << std::endl;
     return (out);
 }

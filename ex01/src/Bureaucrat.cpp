@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:08:01 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 14:53:04 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:55:17 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void Bureaucrat::signForm(Form &form)
     {
         std::cout << this->name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
-    
 }
 
 // Exception classes

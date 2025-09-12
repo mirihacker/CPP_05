@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:07:48 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 14:45:57 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/12 15:33:23 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "../inc/Form.hpp"
 
 class Bureaucrat
 {
