@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:47:24 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 17:08:47 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 12:39:45 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
     return("Grade is too low!\n");
+}
+
+const char* AForm::UnsignedFormException::what() const throw()
+{
+    return("Form not yet signed!\n");
 }
 
 // Operator Overload

@@ -6,14 +6,14 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:01:57 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 17:09:25 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:10:39 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -53,6 +53,12 @@ class AForm
         };
 
         class GradeTooLowException : public std::exception
+        {
+            public:
+            const char* what() const throw();
+        };
+        
+        class UnsignedFormException: public std::exception
         {
             public:
             const char* what() const throw();
