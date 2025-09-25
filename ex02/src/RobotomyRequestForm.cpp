@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 13:17:35 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/25 15:27:14 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:40:59 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
-    if (!getIsSigned)
+    if (!getIsSigned())
         throw AForm::UnsignedFormException();
     if (executor.getGrade() > getExecGrade())
+    {
+        std::cerr << "Error: Unable to execute!!!\n" << std::endl;
         throw AForm::GradeTooLowException();
+    }
     
     std::cout << "\n ----------- ZZZZZZ DRILLING NOISESSS ----------- " << std::endl;
     std::cout << "\n ----------- ZZZZZZ DRILLING NOISESSS ----------- " << std::endl;

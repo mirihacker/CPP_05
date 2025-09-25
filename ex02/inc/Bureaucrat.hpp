@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:07:48 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 17:06:49 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:42:28 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "../inc/AForm.hpp"
+#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {

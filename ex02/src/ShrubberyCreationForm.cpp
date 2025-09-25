@@ -6,7 +6,7 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 12:05:31 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/25 13:10:38 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:00:52 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-    if (!getIsSigned)
+    if (!getIsSigned())
         throw AForm::UnsignedFormException();
     if (executor.getGrade() > getExecGrade())
+    {
+        std::cerr << "Error: Unable to execute!!!\n" << std::endl;
         throw AForm::GradeTooLowException();
+    }
     
     std::ofstream file(target + "_shrubbery"); // File creation
 
@@ -63,5 +66,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     file << "⠀⠀⠀⠀⠀⠛⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀" << std::endl;
 
     file.close();
-    std::cout << executor.getName() << " executed " << this->getName();
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }

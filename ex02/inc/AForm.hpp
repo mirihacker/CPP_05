@@ -6,14 +6,14 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:01:57 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/25 13:10:39 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:35:10 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include "../inc/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

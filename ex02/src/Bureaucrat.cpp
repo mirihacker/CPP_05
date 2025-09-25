@@ -6,12 +6,11 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:08:01 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 17:06:29 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 16:29:38 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/AForm.hpp"
 
 // OCF
 Bureaucrat::Bureaucrat(void) : name("Buro"), grade(100) {}
