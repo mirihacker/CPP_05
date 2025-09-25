@@ -6,12 +6,12 @@
 /*   By: smiranda <smiranda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:41:33 by smiranda          #+#    #+#             */
-/*   Updated: 2025/09/12 16:35:36 by smiranda         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:17:21 by smiranda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 int main()
 {
