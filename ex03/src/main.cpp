@@ -10,117 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Bureaucrat.hpp"
-#include "../inc/ShrubberyCreationForm.hpp"
-#include "../inc/RobotomyRequestForm.hpp"
-#include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/Intern.hpp"
+#include <iostream>
 
 int main()
 {
-    std::cout << "\n\033[33m--*--*-- BUREAUCRAT CREATION TEST --*--*--\n" << "\033[0m" << std::endl;
+  Intern randomIntern;
 
-    try
-    {
-        std::cout << "Creating Bureaucrat Juan grade 5..." << std::endl;
-        Bureaucrat Juan("Juan", 5);
-        while (Juan.getGrade() >= 1)
-        {
-            std::cout << "\033[32m" << Juan << "\033[0m";
-            Juan.incrementGrade();
-        }
-        std::cout << "\n\033[31mIncrementing over the limit!!!...\n" << "\033[0m" << std::endl;
-        Juan.incrementGrade();
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << "Exception caught: " << e.what() << std::endl;
-        std::cerr << e.what();
-    }
+  std::cout << "\n--*--*-- INTERN FORM CREATION TEST --*--*--\n" << std::endl;
 
-    std::cout << "\n\033[33m--*--*-- INVALID BUREAUCRAT TEST --*--*--\n" << "\033[0m" << std::endl;
+  // Valid inputs with different cases
+  AForm* form1 = randomIntern.makeForm("Shrubbery creation", "Home");
+  AForm* form2 = randomIntern.makeForm("shrubbery Creation", "Garden");
+  AForm* form3 = randomIntern.makeForm("ROBOTOMY REQUEST", "Bender");
+  AForm* form4 = randomIntern.makeForm("Presidential PArdon ", "Licha");
 
-    try
-    {
-        std::cout << "\033[31mCreating Bureaucrat Jose grade 151 (should throw exception)" << "\033[0m" << std::endl;
-        Bureaucrat Jose("Jose", 151);
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << "\nException caught: " << e.what() << std::endl;
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        std::cout << "\033[31mCreating Bureaucrat Juanjo grade 0 (should throw exception)" << "\033[0m" << std::endl;
-        Bureaucrat Juanjo("Juanjo", 0);
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << "\nException caught: " << e.what() << std::endl;
-        std::cerr << e.what() << '\n';
-    }
+  // Invalid input
+  AForm* form5 = randomIntern.makeForm("non existent form", "nowhere");
 
-    std::cout << "\n\033[33m--*--*-- FORM CREATION TEST --*--*--\n" << "\033[0m" << std::endl;
-   
-    std::cout << "Creating Form 'ShrubberyCreationForm' ...\n" << std::endl;
-    ShrubberyCreationForm Shru1;
-    ShrubberyCreationForm Heilbronn("Heilbronn");
-    std::cout << Shru1 << "\n" << Heilbronn << std::endl;
+  if (form1) std::cout << *form1 << std::endl;
+  if (form2) std::cout << *form2 << std::endl;
+  if (form3) std::cout << *form3 << std::endl;
+  if (form4) std::cout << *form4 << std::endl;
+  if (!form5) std::cout << "Form5 is NULL" << std::endl;
 
-    std::cout << "\nCreating Form 'RobotomyRequestForm' ...\n" << std::endl;
-    RobotomyRequestForm Tito;
-    RobotomyRequestForm Toto("Toto");
-    std::cout << Tito << "\n" << Toto << std::endl;
+  delete form1;
+  delete form2;
+  delete form3;
+  delete form4;
+  delete form5;
 
-    std::cout << "\nCreating Form 'PresidentialPardonForm' ...\n" << std::endl;
-    PresidentialPardonForm Def;
-    PresidentialPardonForm Julion("Julion Alvarez");
-    std::cout << Def << "\n" << Julion << std::endl;
-  
-    
-    std::cout << "\n\033[33m--*--*-- SIGNING TEST --*--*--\n" << "\033[0m" << std::endl;
-
-    std::cout << "Creating Bureaucrat Juan grade 26..." << std::endl;
-    Bureaucrat Juan("Juan", 26);
-    std::cout << "\033[32m\nBureaucrat Juan tries to sign all forms...\033[0m" << std::endl;
-    std::cout << "\033[32m\nJuan tries to sign ShrubberyCreationForms ...\033[0m" << std::endl;
-    Juan.signForm(Shru1);
-    Juan.signForm(Heilbronn);
-    std::cout << "\033[32m\n\nJuan tries to sign RobotomyRequestForms ...\033[0m" << std::endl;
-    Juan.signForm(Tito);
-    Juan.signForm(Toto);
-    std::cout << "\033[32m\n\nJuan tries to sign PresidentialPardonForms ...\033[0m" << std::endl;
-    Juan.signForm(Def);
-    Juan.signForm(Julion);
-    std::cout << "\033[31mIncrementing Juan's grade ...\n\033[0m" << std::endl;
-    Juan.incrementGrade();
-    std::cout << Juan;
-    Juan.signForm(Def);
-    Juan.signForm(Julion);
-    
-    std::cout << "\n\033[33m--*--*-- EXECUTION TEST --*--*--\n" << "\033[0m" << std::endl;
-
-    std::cout << "Creating Bureaucrat Julio grade 30..." << std::endl;
-    Bureaucrat Julio("Julio", 30);
-    std::cout << "\033[32m\nBureaucrat Julio tries to execute all forms...\033[0m" << std::endl;
-    std::cout << "\033[32m\nJulio tries to execute ShrubberyCreationForms ...\033[0m" << std::endl;
-    Shru1.execute(Julio);
-    Heilbronn.execute(Julio);
-    std::cout << "\033[32m\n\nJulio tries to execute RobotomyRequestForms ...\033[0m" << std::endl;
-    Tito.execute(Julio);
-    Toto.execute(Julio);
-    std::cout << "\033[31mCalling Julio's boss Sisi ...\n\033[0m" << std::endl;
-    Bureaucrat Sisi("Sisi", 5);
-    Def.execute(Sisi);
-    Julion.execute(Sisi);
-    std::cout << "\033[32m\n\nJulio tries to execute PresidentialPardonForms ...\033[0m" << std::endl;
-    try 
-    {
-        Def.execute(Julio);
-    }
-    catch (const std::exception& e) 
-    {
-        std::cout << "Exception caught while Julio tries to execute Def: " 
-                  << e.what() << std::endl;
-    }
+  return (0);
 }
